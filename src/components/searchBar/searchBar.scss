@@ -116,8 +116,10 @@
     clear: both; // Ensure it's below search bar
 
     @include sm {
-      display: none !important; // Hide on mobile to prevent any overlap issues
-      margin-top: 0;
+      display: block !important; // Show on mobile
+      margin-top: 200px; // Push way down to avoid search bar
+      position: relative;
+      z-index: 0;
     }
 
     @include md {
