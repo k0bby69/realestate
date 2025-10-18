@@ -17,7 +17,7 @@ export default defineConfig({
       }
     }
   ],
-  base: '/realestate/',
+  base: process.env.NODE_ENV === 'production' ? '/realestate/' : '/',
   build: {
     rollupOptions: {
       output: {
