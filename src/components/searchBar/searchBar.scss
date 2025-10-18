@@ -112,8 +112,7 @@
     order: 2; // Ensure it comes after searchBar
 
     @include sm {
-      margin-top: 20px;
-      padding: 15px;
+      display: none; // Hide on mobile
     }
 
     .quickSearchLabel {
