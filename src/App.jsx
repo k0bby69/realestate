@@ -94,7 +94,9 @@ function App() {
         },
       ],
     },
-  ]);
+  ], {
+    basename: import.meta.env.PROD ? '/realestate' : '/'
+  });
 
   return <RouterProvider router={router} />;
 }
