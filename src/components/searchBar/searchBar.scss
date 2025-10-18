@@ -112,7 +112,11 @@
     order: 2; // Ensure it comes after searchBar
 
     @include sm {
-      display: none; // Hide on mobile
+      display: none !important; // Hide on mobile - force with !important
+    }
+
+    @include md {
+      display: none; // Also hide on medium screens for tablets
     }
 
     .quickSearchLabel {
