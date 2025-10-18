@@ -1,7 +1,14 @@
 @import "../../responsive.scss";
 
 .searchBarWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+
   .searchBar {
+    order: 1; // Ensure searchBar comes first
+
     .type {
       button {
         padding: 16px 36px;
@@ -97,14 +104,15 @@
   }
 
   .quickSearchLinks {
-    margin-top: 20px;
+    margin-top: 25px;
     padding: 20px;
     background: rgba(255, 255, 255, 0.95);
     border-radius: 12px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    order: 2; // Ensure it comes after searchBar
 
     @include sm {
-      margin-top: 15px;
+      margin-top: 20px;
       padding: 15px;
     }
 

@@ -72,11 +72,11 @@ function Navbar() {
           </>
         )}
         <div className="menuIcon">
-          <img
-            src="/menu.png"
-            alt=""
-            onClick={() => setOpen((prev) => !prev)}
-          />
+          <div className="hamburgerIcon" onClick={() => setOpen((prev) => !prev)}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
         <div className={open ? "menu active" : "menu"}>
           <button className="closeBtn" onClick={() => setOpen(false)}>

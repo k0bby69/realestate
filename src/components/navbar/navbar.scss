@@ -205,18 +205,42 @@ nav {
       z-index: 999;
       margin-left: 15px;
 
-      img {
+      .hamburgerIcon {
         width: 28px;
         height: 28px;
         cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 4px;
         transition: all 0.3s ease;
-        filter: brightness(0) contrast(1.2); // Make it more visible
-        opacity: 0.8;
-      }
 
-      &:hover img {
-        opacity: 1;
-        transform: scale(1.1);
+        span {
+          width: 100%;
+          height: 3px;
+          background-color: #333;
+          border-radius: 2px;
+          transition: all 0.3s ease;
+          transform-origin: center;
+
+          &:nth-child(1) {
+            transform: rotate(0deg);
+          }
+
+          &:nth-child(2) {
+            opacity: 1;
+          }
+
+          &:nth-child(3) {
+            transform: rotate(0deg);
+          }
+        }
+
+        &:hover {
+          span {
+            background-color: #fece51;
+          }
+        }
       }
 
       @include sm {
