@@ -1,0 +1,177 @@
+@import "../../responsive.scss";
+
+.homePage {
+  display: flex;
+  height: calc(100vh - 80px);
+  overflow: hidden;
+  padding: 0 60px;
+
+  @include md {
+    padding: 0 30px;
+    height: auto;
+  }
+
+  @include sm {
+    padding: 0 20px;
+    height: auto;
+  }
+
+  .textContainer {
+    flex: 3;
+
+    .wrapper {
+      padding-right: 100px;
+      padding-top: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      height: 100%;
+
+      @include lg{
+        padding-right: 50px;
+      }
+
+      @include md{
+        padding-right: 0;
+      }
+
+      @include sm{
+        justify-content: flex-start;
+        padding-top: 30px;
+      }
+
+      .title {
+        font-size: 64px;
+        font-family: inherit;
+
+        @include lg {
+          font-size: 48px;
+        }
+
+        @include sm {
+          font-size: 36px;
+        }
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.6;
+        color: #555;
+
+        @include sm {
+          font-size: 16px;
+        }
+      }
+
+      .boxes {
+        display: flex;
+        justify-content: space-between;
+
+        @include sm {
+          display: none;
+        }
+
+        h1 {
+          font-size: 36px;
+
+          @include lg {
+            font-size: 32px;
+          }
+        }
+
+        h2 {
+          font-size: 20px;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+
+  .imgContainer {
+    flex: 2;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&h=1000&fit=crop');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include md {
+      display: none;
+    }
+
+    img {
+      display: none;
+    }
+  }
+}
+
+.ctaSection {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=800&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 80px 60px;
+  margin: 60px 0;
+
+  @include md {
+    padding: 60px 30px;
+    margin: 40px 0;
+  }
+
+  @include sm {
+    padding: 40px 20px;
+    margin: 30px 0;
+  }
+
+  .ctaContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+
+    h2 {
+      font-size: 3rem;
+      color: #fff;
+      margin-bottom: 15px;
+
+      @include lg {
+        font-size: 2.5rem;
+      }
+
+      @include md {
+        font-size: 2rem;
+      }
+
+      @include sm {
+        font-size: 1.8rem;
+      }
+    }
+
+    p {
+      font-size: 1.25rem;
+      color: #f0f0f0;
+      margin-bottom: 35px;
+
+      @include sm {
+        font-size: 1rem;
+      }
+    }
+
+    .ctaButtons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      @include sm {
+        flex-direction: column;
+        gap: 15px;
+        
+        .ctaButton {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

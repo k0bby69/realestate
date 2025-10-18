@@ -1,0 +1,129 @@
+.registerPage {
+  height: 100vh;
+  display: flex;
+
+  .formContainer {
+    flex: 3;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 6rem 2rem 2rem 2rem;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      max-width: 400px;
+
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 1rem;
+      }
+
+      input {
+        padding: 20px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: teal;
+          box-shadow: 0 0 5px rgba(0, 128, 128, 0.3);
+        }
+
+        &:disabled {
+          background-color: #f5f5f5;
+          cursor: not-allowed;
+          opacity: 0.7;
+        }
+      }
+
+      button {
+        padding: 20px;
+        border-radius: 5px;
+        border: none;
+        background-color: teal;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease, transform 0.1s ease;
+
+        &:hover:not(:disabled) {
+          background-color: #006666;
+          transform: translateY(-1px);
+        }
+
+        &:active:not(:disabled) {
+          transform: translateY(0);
+        }
+
+        &:disabled {
+          background-color: #fece51;
+          cursor: not-allowed;
+          transform: none;
+        }
+      }
+
+      span {
+        color: rgba(255, 0, 0, 0.591);
+        text-align: center;
+
+        &.error {
+          color: #d32f2f;
+          background-color: #ffebee;
+          padding: 10px;
+          border-radius: 5px;
+          border-left: 4px solid #d32f2f;
+          font-size: 14px;
+        }
+
+        &.success {
+          color: #2e7d32;
+          background-color: #e8f5e8;
+          padding: 10px;
+          border-radius: 5px;
+          border-left: 4px solid #4caf50;
+          font-size: 14px;
+          animation: slideIn 0.3s ease-out;
+        }
+      }
+
+      a {
+        font-size: 14px;
+        color: gray;
+        border-bottom: 1px solid gray;
+        width: max-content;
+        align-self: center;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .imgContainer {
+    flex: 2;
+    background-color: #fcf5f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

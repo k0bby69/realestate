@@ -1,0 +1,142 @@
+@import "../../responsive.scss";
+
+.testimonials {
+  padding: 80px 60px;
+  background-color: #ffffff;
+  border-top: 1px solid #e8e8e8;
+
+  @include md {
+    padding: 60px 30px;
+  }
+
+  @include sm {
+    padding: 40px 20px;
+  }
+
+  .testimonialsHeader {
+    text-align: center;
+    margin-bottom: 50px;
+
+    h2 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 15px;
+      font-weight: 700;
+
+      @include sm {
+        font-size: 2rem;
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #666;
+
+      @include sm {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .testimonialsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @include md {
+      gap: 25px;
+    }
+
+    @include sm {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .testimonialCard {
+      background: white;
+      padding: 35px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      position: relative;
+
+      @include sm {
+        padding: 25px;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      }
+
+      &::before {
+        content: '"';
+        position: absolute;
+        top: 20px;
+        left: 25px;
+        font-size: 80px;
+        color: rgba(254, 206, 81, 0.15);
+        font-family: Georgia, serif;
+        line-height: 0;
+      }
+
+      .stars {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 20px;
+
+        i {
+          color: #fece51;
+          font-size: 1.1rem;
+        }
+      }
+
+      .testimonialText {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 25px;
+        font-style: italic;
+        position: relative;
+        z-index: 1;
+
+        @include sm {
+          font-size: 0.95rem;
+        }
+      }
+
+      .testimonialAuthor {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding-top: 20px;
+        border-top: 1px solid #e8e8e8;
+
+        img {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 3px solid #fece51;
+        }
+
+        .authorInfo {
+          h4 {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 5px;
+            font-weight: 600;
+          }
+
+          p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

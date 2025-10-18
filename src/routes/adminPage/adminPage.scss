@@ -1,0 +1,331 @@
+.adminPage {
+  height: 100%;
+  display: flex;
+
+  .wrapper {
+    flex: 1;
+    padding: 20px;
+
+    h1 {
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+
+      button {
+        padding: 10px 20px;
+        border: none;
+        background: #f5f5f5;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s;
+
+        &:hover {
+          background: #e0e0e0;
+        }
+
+        &.active {
+          background: #fece51;
+          color: white;
+        }
+      }
+    }
+
+    .loading {
+      text-align: center;
+      padding: 50px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .content {
+      .userList {
+        h2 {
+          margin-bottom: 20px;
+          color: #333;
+        }
+
+        .users {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+
+          .userCard {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+            .userInfo {
+              display: flex;
+              align-items: center;
+              gap: 15px;
+
+              img {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                object-fit: cover;
+              }
+
+              .details {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                h3 {
+                  margin: 0;
+                  color: #333;
+                }
+
+                p {
+                  margin: 0;
+                  color: #333;
+                  font-size: 14px;
+                }
+
+                span {
+                  font-size: 12px;
+                  color: #333;
+                }
+
+                .status {
+                  display: flex;
+                  gap: 10px;
+                  margin: 5px 0;
+
+                  .role {
+                    padding: 2px 8px;
+                    border-radius: 12px;
+                    font-size: 11px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+
+                    &.admin {
+                      background: #ff6b6b;
+                      color: white;
+                    }
+
+                    &.user {
+                      background: #fece51;
+                      color: white;
+                    }
+                  }
+
+                  .approval {
+                    padding: 2px 8px;
+                    border-radius: 12px;
+                    font-size: 11px;
+                    font-weight: 600;
+
+                    &.approved {
+                      background: #51cf66;
+                      color: white;
+                    }
+
+                    &.pending {
+                      background: #ffd43b;
+                      color: #333;
+                    }
+                  }
+                }
+              }
+            }
+
+            .actions {
+              display: flex;
+              gap: 10px;
+
+              button {
+                padding: 8px 16px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-weight: 500;
+                transition: all 0.3s;
+
+                &.approve {
+                  background: #51cf66;
+                  color: white;
+
+                  &:hover {
+                    background: #47c257;
+                  }
+                }
+
+                &.revoke {
+                  background: #ffd43b;
+                  color: #333;
+
+                  &:hover {
+                    background: #ffcc02;
+                  }
+                }
+
+                &.delete {
+                  background: #ff6b6b;
+                  color: white;
+
+                  &:hover {
+                    background: #ff5252;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .blogForm {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+        h2 {
+          margin-bottom: 30px;
+          color: #333;
+          font-size: 24px;
+        }
+
+        form {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          .formGroup {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            label {
+              font-weight: 600;
+              color: #333;
+              font-size: 14px;
+            }
+
+            input, textarea, select {
+              padding: 12px 15px;
+              border: 2px solid #e0e0e0;
+              border-radius: 8px;
+              font-size: 15px;
+              transition: all 0.3s;
+
+              &:focus {
+                outline: none;
+                border-color: #fece51;
+                box-shadow: 0 0 0 3px rgba(254, 206, 81, 0.1);
+              }
+            }
+
+            textarea {
+              resize: vertical;
+              min-height: 120px;
+              font-family: inherit;
+            }
+
+            select {
+              cursor: pointer;
+            }
+
+            .imageInput {
+              padding: 10px;
+              border: 2px dashed #e0e0e0;
+              border-radius: 8px;
+              cursor: pointer;
+              
+              &:hover {
+                border-color: #fece51;
+              }
+            }
+
+            .imagePreview {
+              margin-top: 15px;
+              position: relative;
+
+              img {
+                width: 100%;
+                max-height: 300px;
+                object-fit: cover;
+                border-radius: 8px;
+                border: 2px solid #e0e0e0;
+              }
+
+              .removeImage {
+                margin-top: 10px;
+                padding: 8px 16px;
+                background: #ff6b6b;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 14px;
+                transition: all 0.3s;
+
+                &:hover {
+                  background: #ff5252;
+                }
+              }
+            }
+          }
+
+          .createBlogBtn {
+            padding: 14px 24px;
+            background: #fece51;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+
+            &:hover {
+              background: #e6b73d;
+              transform: translateY(-2px);
+              box-shadow: 0 4px 15px rgba(254, 206, 81, 0.3);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .adminPage {
+    .wrapper {
+      padding: 10px;
+
+      .tabs {
+        flex-direction: column;
+
+        button {
+          text-align: center;
+        }
+      }
+
+      .content .userList .users .userCard {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+
+        .actions {
+          align-self: stretch;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

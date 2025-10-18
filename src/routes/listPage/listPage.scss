@@ -1,0 +1,112 @@
+@import "../../responsive.scss";
+
+.alertBanner {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 60px;
+
+  @include md {
+    padding: 15px 30px;
+  }
+
+  @include sm {
+    padding: 15px 20px;
+  }
+
+  .alertContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    @include sm {
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .alertText {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 1rem;
+
+      @include sm {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+      }
+
+      i {
+        font-size: 1.5rem;
+        color: #fece51;
+      }
+    }
+
+    .alertActions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      @include sm {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .closeBtn {
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+          border-color: rgba(255, 255, 255, 0.5);
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+}
+
+.listPage {
+  display: flex;
+  min-height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+
+  .listContainer {
+    flex: 1;
+    width: 100%;
+    padding: 20px 60px;
+    background-color: #ffffff;
+
+    @include md {
+      padding: 15px 30px;
+    }
+
+    @include sm {
+      padding: 15px 20px;
+    }
+
+    .wrapper{
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      padding-bottom: 30px;
+    }
+  }
+  .mapContainer {
+    display: none;
+  }
+}

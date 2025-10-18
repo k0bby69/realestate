@@ -1,0 +1,326 @@
+@import "../../responsive.scss";
+
+.landingPage {
+  min-height: 100vh;
+  background-image: url('/bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  overflow-x: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.85) 100%);
+    z-index: 1;
+  }
+
+  .hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+
+    @include md {
+      min-height: 50vh;
+    }
+
+    @include sm {
+      min-height: 40vh;
+      background-attachment: scroll;
+    }
+
+    .heroContent {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 40px 20px;
+      max-width: 800px;
+      animation: fadeInUp 1s ease;
+
+      .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 30px;
+
+        @include sm {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        img {
+          width: 60px;
+          height: 60px;
+
+          @include sm {
+            width: 50px;
+            height: 50px;
+          }
+        }
+
+        h1 {
+          font-size: 4rem;
+          color: white;
+          font-weight: 800;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+          @include md {
+            font-size: 3rem;
+          }
+
+          @include sm {
+            font-size: 2.5rem;
+          }
+        }
+      }
+
+      .tagline {
+        font-size: 1.8rem;
+        color: #fece51;
+        font-weight: 600;
+        margin-bottom: 15px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+
+        @include md {
+          font-size: 1.5rem;
+        }
+
+        @include sm {
+          font-size: 1.2rem;
+        }
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 300;
+
+        @include sm {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .navigationGrid {
+    max-width: 1400px;
+    margin: -50px auto 60px;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 40px;
+    position: relative;
+    z-index: 10;
+
+    @include lg {
+      grid-template-columns: repeat(3, 1fr);
+      padding: 0 30px;
+    }
+
+    @include md {
+      margin: -30px auto 40px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      padding: 0 20px;
+    }
+
+    @include sm {
+      grid-template-columns: 1fr;
+      padding: 0 15px;
+    }
+
+    .navCard {
+      background: white;
+      padding: 15px 10px;
+      border-radius: 25px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+
+      @include sm {
+        padding: 30px 20px;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(254, 206, 81, 0.3), transparent);
+        transition: left 0.5s ease;
+      }
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+
+        &::before {
+          left: 100%;
+        }
+
+        .iconWrapper {
+          transform: scale(1.1) rotate(5deg);
+        }
+
+        .arrow {
+          transform: translateX(10px);
+        }
+      }
+
+      .iconWrapper {
+        width: 40px;
+        height: 40px;
+        margin: 0 auto 10px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s ease;
+
+        @include sm {
+          width: 70px;
+          height: 70px;
+          margin-bottom: 20px;
+        }
+
+        i {
+          font-size: 1.2rem;
+
+          @include sm {
+            font-size: 2rem;
+          }
+        }
+      }
+
+      h2 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+        color: #333;
+        font-weight: 700;
+
+        @include sm {
+          font-size: 1.5rem;
+        }
+      }
+
+      p {
+        font-size: 0.75rem;
+        color: #333;
+        line-height: 1.4;
+        margin-bottom: 10px;
+
+        @include sm {
+          font-size: 0.95rem;
+        }
+      }
+
+      .arrow {
+        font-size: 1rem;
+        color: #fece51;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+      }
+
+      &.buyers .iconWrapper {
+        background: linear-gradient(135deg, #fece51 0%, #e6b945 100%);
+        i { color: white; }
+      }
+
+      &.sellers .iconWrapper {
+        background: linear-gradient(135deg, #fece51 0%, #e6b945 100%);
+        i { color: white; }
+      }
+
+      &.luxury .iconWrapper {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        i { color: white; }
+      }
+
+      &.news .iconWrapper {
+        background: linear-gradient(135deg, #fece51 0%, #fed6e3 100%);
+        i { color: #333; }
+      }
+
+      &.about .iconWrapper {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        i { color: #333; }
+      }
+
+      &.contact .iconWrapper {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        i { color: white; }
+      }
+    }
+  }
+
+  .quickAccess {
+    text-align: center;
+    padding: 20px 20px 60px;
+    background: transparent;
+    position: relative;
+    z-index: 10;
+
+    .skipButton {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 35px;
+      background: white;
+      border: 2px solid white;
+      color: #333;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+      @include sm {
+        padding: 12px 28px;
+        font-size: 1rem;
+      }
+
+      &:hover {
+        background: #8B9197;
+        color: white;
+        border-color: #333;
+        transform: translateX(5px);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      i {
+        transition: transform 0.3s ease;
+      }
+
+      &:hover i {
+        transform: translateX(5px);
+      }
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

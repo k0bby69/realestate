@@ -1,0 +1,344 @@
+@import "../../responsive.scss";
+
+.sellersPage {
+  width: 100%;
+
+  .heroSection {
+    position: relative;
+    height: 400px;
+    background-image: url('/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    @include md {
+      height: 300px;
+      background-attachment: scroll;
+    }
+
+    @include sm {
+      height: 250px;
+      background-attachment: scroll;
+    }
+
+    .heroOverlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(139, 145, 151, 0.85) 0%, rgba(52, 73, 94, 0.85) 100%);
+    }
+
+    .heroContent {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+
+      h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+        @include md {
+          font-size: 2.5rem;
+        }
+
+        @include sm {
+          font-size: 2rem;
+        }
+      }
+
+      p {
+        font-size: 1.3rem;
+        opacity: 0.95;
+
+        @include sm {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+
+  .contactSection {
+    padding: 80px 60px;
+    background: #f8f9fa;
+
+    @include md {
+      padding: 60px 30px;
+    }
+
+    @include sm {
+      padding: 40px 20px;
+    }
+
+    .contactContainer {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+
+      @include lg {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .contactInfo {
+        h2 {
+          font-size: 2.5rem;
+          color: #333;
+          margin-bottom: 15px;
+
+          @include sm {
+            font-size: 2rem;
+          }
+        }
+
+        .subtitle {
+          font-size: 1.1rem;
+          color: #333;
+          margin-bottom: 40px;
+        }
+
+        .benefits {
+          display: flex;
+          flex-direction: column;
+          gap: 25px;
+          margin-bottom: 50px;
+
+          .benefit {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+
+            &:hover {
+              transform: translateY(-3px);
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            }
+
+            i {
+              font-size: 2rem;
+              color: #fece51;
+              min-width: 40px;
+            }
+
+            h3 {
+              font-size: 1.2rem;
+              color: #333;
+              margin-bottom: 5px;
+            }
+
+            p {
+              font-size: 0.95rem;
+              color: #333;
+              line-height: 1.5;
+            }
+          }
+        }
+
+        .contactDetails {
+          background: white;
+          padding: 30px;
+          border-radius: 12px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+          h3 {
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 20px;
+          }
+
+          .detail {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+
+            &:last-child {
+              border-bottom: none;
+            }
+
+            i {
+              font-size: 1.2rem;
+              color: #fece51;
+              min-width: 25px;
+            }
+
+            span {
+              font-size: 1rem;
+              color: #333;
+            }
+          }
+        }
+      }
+
+      .contactForm {
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+        @include sm {
+          padding: 30px 20px;
+        }
+
+        h2 {
+          font-size: 2rem;
+          color: #333;
+          margin-bottom: 30px;
+          text-align: center;
+
+          @include sm {
+            font-size: 1.6rem;
+          }
+        }
+
+        .successMessage {
+          text-align: center;
+          padding: 40px 20px;
+
+          i {
+            font-size: 4rem;
+            color: #4caf50;
+            margin-bottom: 20px;
+          }
+
+          h3 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 10px;
+          }
+
+          p {
+            font-size: 1.1rem;
+            color: #333;
+          }
+        }
+
+        form {
+          .formGroup {
+            margin-bottom: 25px;
+
+            label {
+              display: block;
+              font-weight: 600;
+              color: #333;
+              margin-bottom: 8px;
+              font-size: 0.95rem;
+            }
+
+            input,
+            select,
+            textarea {
+              width: 100%;
+              padding: 12px 15px;
+              border: 2px solid #e0e0e0;
+              border-radius: 8px;
+              font-size: 1rem;
+              transition: all 0.3s ease;
+              font-family: inherit;
+
+              &:focus {
+                outline: none;
+                border-color: #fece51;
+                box-shadow: 0 0 0 3px rgba(254, 206, 81, 0.1);
+              }
+
+              &::placeholder {
+                color: #333;
+              }
+            }
+
+            select {
+              cursor: pointer;
+              background-color: white;
+            }
+
+            textarea {
+              resize: vertical;
+              min-height: 100px;
+            }
+          }
+
+          .submitButton {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #fece51 0%, #e6b945 100%);
+            color: #333;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+
+            &:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 6px 20px rgba(254, 206, 81, 0.4);
+            }
+
+            i {
+              font-size: 1.1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .featuredSection {
+    padding: 80px 60px;
+    background: white;
+
+    @include md {
+      padding: 60px 30px;
+    }
+
+    @include sm {
+      padding: 40px 20px;
+    }
+
+    .sectionHeader {
+      text-align: center;
+      margin-bottom: 50px;
+
+      h2 {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 15px;
+
+        @include sm {
+          font-size: 2rem;
+        }
+      }
+
+      p {
+        font-size: 1.1rem;
+        color: #333;
+      }
+    }
+
+    .listingsContainer {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+  }
+}

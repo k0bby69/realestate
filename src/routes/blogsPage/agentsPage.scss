@@ -1,0 +1,119 @@
+.agentsPage {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  overflow-y: auto;
+
+  .container {
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #333;
+      font-size: 2.5rem;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #333;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .agentsGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding-bottom: 2rem;
+
+      .agentCard {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .agentImage {
+          height: 200px;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .agentInfo {
+          padding: 1.5rem;
+
+          h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+          }
+
+          .title {
+            color: #fece51;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+          }
+
+          .experience {
+            color: #333;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+          }
+
+          .specialization {
+            color: #333;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+          }
+
+          .bio {
+            color: #333;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+          }
+
+          .contact {
+            margin-bottom: 1.5rem;
+
+            p {
+              margin: 0.3rem 0;
+              color: #333;
+              font-size: 0.9rem;
+            }
+          }
+
+          .contactBtn {
+            width: 100%;
+            background: #fece51;
+            color: #333;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+              background: #e6b73d;
+            }
+          }
+        }
+      }
+    }
+  }
+}

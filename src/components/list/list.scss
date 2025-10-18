@@ -1,0 +1,17 @@
+@import "../../responsive.scss";
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+
+  @include lg {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  @include md {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

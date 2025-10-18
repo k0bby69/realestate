@@ -1,0 +1,153 @@
+@import "../../responsive.scss";
+
+.slider {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  gap: 15px;
+  border-radius: 15px;
+  overflow: hidden;
+
+  @include md {
+    height: 400px;
+  }
+
+  @include sm {
+    height: 320px;
+    gap: 10px;
+  }
+
+  .fullSlider {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+
+    .arrow {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      padding: 20px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      img {
+        width: 60px;
+        filter: invert(1);
+
+        @include md {
+          width: 40px;
+        }
+
+        @include sm {
+          width: 30px;
+        }
+
+        &.right {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .imgContainer {
+      flex: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+
+      img {
+        max-width: 100%;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 10px;
+      }
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 42px;
+      font-weight: bold;
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.5);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #fece51;
+        color: #333;
+        transform: rotate(90deg);
+      }
+
+      @include sm {
+        width: 40px;
+        height: 40px;
+        font-size: 32px;
+        top: 15px;
+        right: 15px;
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+  }
+
+  .bigImage {
+    flex: 3;
+    border-radius: 15px;
+    overflow: hidden;
+
+    @include sm {
+      flex: 2;
+    }
+  }
+  .smallImages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+
+    @include sm {
+      flex: 1;
+    }
+
+    img {
+      height: 100px;
+
+      @include sm {
+        height: 80px;
+      }
+    }
+  }
+}
