@@ -112,18 +112,17 @@
 
   .quickSearchLinks {
     margin-top: 25px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 12px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
     order: 2; // Ensure it comes after searchBar
 
     @include sm {
-      display: block !important; // Show on mobile now
+      display: none !important; // Hide on mobile to prevent overlapping
     }
 
     @include md {
-      display: block; // Also show on medium screens for tablets
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
     }
 
     .quickSearchLabel {
