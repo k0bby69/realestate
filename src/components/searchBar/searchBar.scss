@@ -7,7 +7,11 @@
   width: 100%;
   position: relative;
   z-index: 1;
-  margin-bottom: 0; // Remove margin - let flexbox gap handle spacing
+  margin-bottom: 0;
+
+  @include sm {
+    margin-bottom: 20px; // Add margin on mobile to separate from boxes
+  }
 
   .searchBar {
     order: 1; // Ensure searchBar comes first
@@ -115,11 +119,11 @@
     order: 2; // Ensure it comes after searchBar
 
     @include sm {
-      display: none !important; // Hide on mobile - force with !important
+      display: block !important; // Show on mobile now
     }
 
     @include md {
-      display: none; // Also hide on medium screens for tablets
+      display: block; // Also show on medium screens for tablets
     }
 
     .quickSearchLabel {
@@ -143,10 +147,11 @@
       justify-items: center;
 
       @include sm {
-        grid-template-columns: 1fr 1fr; // 2 columns on mobile
-        gap: 10px;
+        grid-template-columns: 1fr; // Single column on mobile for better spacing
+        gap: 12px;
+        width: 100%;
 
-        // For very small screens, single column
+        // For very small screens, make sure it doesn't overlap
         @media (max-width: 480px) {
           grid-template-columns: 1fr;
           gap: 8px;
