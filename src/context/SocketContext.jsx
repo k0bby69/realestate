@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { io } from "socket.io-client";
 import { AuthContext } from "./AuthContext";
 
 export const SocketContext = createContext();
@@ -9,43 +8,20 @@ export const SocketContextProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    try {
-      const newSocket = io("http://localhost:4001", {
-        timeout: 5000,
-        forceNew: true,
-        transports: ['websocket', 'polling']
-      });
+    // For standalone frontend app, don't attempt to connect to WebSocket server
+    // This prevents connection errors in production
+    console.log('Socket connection disabled for standalone frontend app');
+    setSocket(null);
 
-      newSocket.on('connect', () => {
-        console.log('Socket connected successfully');
-        setSocket(newSocket);
-      });
-
-      newSocket.on('connect_error', (error) => {
-        console.log('Socket connection failed:', error.message);
-        // Don't set socket if connection fails
-        setSocket(null);
-      });
-
-      newSocket.on('disconnect', () => {
-        console.log('Socket disconnected');
-        setSocket(null);
-      });
-
-      return () => {
-        newSocket.close();
-      };
-    } catch (error) {
-      console.log('Socket initialization failed:', error);
-      setSocket(null);
-    }
+    // Optional: You could implement mock socket functionality here if needed
+    // const mockSocket = {
+    //   emit: (event, data) => console.log('Mock socket emit:', event, data),
+    //   on: (event, callback) => console.log('Mock socket on:', event),
+    //   off: (event, callback) => console.log('Mock socket off:', event),
+    //   close: () => console.log('Mock socket closed')
+    // };
+    // setSocket(mockSocket);
   }, []);
-
-  useEffect(() => {
-    if (currentUser && socket) {
-      socket.emit("newUser", currentUser.id);
-    }
-  }, [currentUser, socket]);
 
   return (
     <SocketContext.Provider value={{ socket }}>
