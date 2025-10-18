@@ -5,6 +5,11 @@
   flex-direction: column;
   gap: 0;
   width: 100%;
+  margin-bottom: 20px; // Add bottom margin for spacing
+
+  @include sm {
+    margin-bottom: 10px; // Less margin on mobile since boxes have margin-top
+  }
 
   .searchBar {
     order: 1; // Ensure searchBar comes first
