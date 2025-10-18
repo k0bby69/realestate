@@ -5,10 +5,11 @@
   flex-direction: column;
   gap: 0;
   width: 100%;
-  margin-bottom: 20px; // Add bottom margin for spacing
+  position: relative; // Ensure proper positioning
+  z-index: 1; // Ensure it doesn't interfere with other elements
 
   @include sm {
-    margin-bottom: 10px; // Less margin on mobile since boxes have margin-top
+    margin-bottom: 15px; // Ensure proper spacing on mobile
   }
 
   .searchBar {
