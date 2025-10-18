@@ -98,7 +98,7 @@
 
   .quickSearchLinks {
     margin-top: 25px;
-    
+
     .quickSearchLabel {
       font-size: 0.95rem;
       color: #666;
@@ -112,7 +112,28 @@
       gap: 10px;
 
       @include sm {
-        gap: 8px;
+        gap: 12px;
+        justify-content: center;
+        
+        // Better mobile layout - 2 buttons per row on larger mobiles, 1 on small
+        .quickSearchBtn {
+          flex: 1 1 calc(50% - 6px); // 2 per row with gap
+          min-width: 140px;
+          max-width: calc(50% - 6px);
+          text-align: center;
+          padding: 10px 8px;
+          font-size: 0.8rem;
+          line-height: 1.2;
+          margin-bottom: 8px;
+          
+          // For very small screens, make them full width
+          @media (max-width: 480px) {
+            flex: 1 1 100%;
+            max-width: 100%;
+            padding: 12px 16px;
+            font-size: 0.85rem;
+          }
+        }
       }
 
       .quickSearchBtn {
@@ -125,6 +146,9 @@
         font-size: 0.9rem;
         transition: all 0.3s ease;
         font-weight: 500;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         @include sm {
           padding: 6px 12px;

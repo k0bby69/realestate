@@ -79,6 +79,13 @@ function Navbar() {
           />
         </div>
         <div className={open ? "menu active" : "menu"}>
+          <button className="closeBtn" onClick={() => setOpen(false)}>
+            ×
+          </button>
+          <div className="menuHeader">
+            <div className="menuLogo">OA Realty</div>
+            <div className="menuSubtitle">Navigation Menu</div>
+          </div>
           <Link to="/" onClick={handleMenuClose}>Home</Link>
           <Link to="/list" onClick={handleMenuClose}>Properties</Link>
           <Link to="/about" onClick={handleMenuClose}>About</Link>
@@ -87,8 +94,12 @@ function Navbar() {
           {currentUser?.role === "admin" && (
             <Link to="/admin" onClick={handleMenuClose}>Admin</Link>
           )}
-          <Link to="/login" onClick={handleMenuClose}>Sign in</Link>
-          <Link to="/register" onClick={handleMenuClose}>Sign up</Link>
+          {!currentUser && (
+            <>
+              <Link to="/login" onClick={handleMenuClose} className="authBtn">Sign in</Link>
+              <Link to="/register" onClick={handleMenuClose} className="authBtn">Sign up</Link>
+            </>
+          )}
         </div>
       </div>
       </div>
