@@ -5,12 +5,9 @@
   flex-direction: column;
   gap: 0;
   width: 100%;
-  position: relative; // Ensure proper positioning
-  z-index: 1; // Ensure it doesn't interfere with other elements
-
-  @include sm {
-    margin-bottom: 15px; // Ensure proper spacing on mobile
-  }
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0; // Remove margin - let flexbox gap handle spacing
 
   .searchBar {
     order: 1; // Ensure searchBar comes first
